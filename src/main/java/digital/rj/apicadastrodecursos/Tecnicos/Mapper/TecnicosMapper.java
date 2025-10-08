@@ -12,6 +12,7 @@ public class TecnicosMapper {
         var req =
                 TecnicosDTO.builder()
                         .name(request.name())
+                        .cursos(request.cursos())
                         .build();
 
         return req;
@@ -23,6 +24,7 @@ public class TecnicosMapper {
                         .name(dto.getName())
                         .id(dto.getId())
                         .isActive(dto.isActive())
+                        .cursos(dto.getCursos())
                         .build();
 
         return response;

@@ -12,6 +12,7 @@ public class TecnicosEntityMapper {
         model.setId(dto.getId());
         model.setName(dto.getName());
         model.setActive(dto.isActive());
+        model.setCursos(dto.getCursos());
         return model;
     }
 
@@ -20,6 +21,7 @@ public class TecnicosEntityMapper {
         model.setName(dto.getName());
         model.setId(dto.getId());
         model.setActive(dto.isActive());
+        dto.setCursos(model.getCursos());
         return dto;
     }
 
