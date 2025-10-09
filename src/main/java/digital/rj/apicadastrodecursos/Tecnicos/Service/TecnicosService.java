@@ -45,6 +45,7 @@ public class TecnicosService {
         return mapper.map(saved);
     }
 
+
     public List<TecnicosResponse> getAll() {
         var listAll = repository.findAll();
         var listByDto = listAll.stream().map(mapper::map).toList();
@@ -115,5 +116,27 @@ public class TecnicosService {
         }else{
             throw new RuntimeException("Error enterprise not found !");
         }
+}
+
+public TecnicosResponse getId(UUID id){
+        var find = repository.findById(id).orElseThrow(() -> new RuntimeException("Error Technical is Not Found !"));
+        if(find != null){
+            var findMapper = mapper.map(find);
+            var findResponse = mapperRes.toResponse(findMapper);
+            return findResponse;
+        }
+        throw new RuntimeException("Error !");
+}
+
+
+public TecnicosResponse getName(String name){
+        var find = repository.findByName(name).orElseThrow(() -> new RuntimeException("Error Techinical is Not Found !"));
+
+        if(find != null){
+            var findMapper = mapper.map(find);
+            var findResponse = mapperRes.toResponse(findMapper);
+            return findResponse;
+        }
+        throw new RuntimeException("Error !");
 }
 }
