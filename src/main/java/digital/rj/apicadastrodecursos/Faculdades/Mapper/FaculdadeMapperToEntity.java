@@ -5,7 +5,7 @@ import digital.rj.apicadastrodecursos.Faculdades.Model.FaculdadeModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MapperToEntity {
+public class FaculdadeMapperToEntity {
 
 
     public FaculdadeModel map(FaculdadeDTO dto){

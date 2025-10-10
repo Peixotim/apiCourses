@@ -6,7 +6,7 @@ import digital.rj.apicadastrodecursos.Faculdades.DTOs.FaculdadeResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MapperToRe {
+public class FaculdadeMapperToRe {
 
     public FaculdadeDTO toFaculdade(FaculdadeRequest request){
         var req =
