@@ -139,4 +139,16 @@ public TecnicosResponse getName(String name){
         }
         throw new RuntimeException("Error !");
 }
+
+public TecnicosResponse getEnterpriseByCnpj(String cnpj){
+        var find = repository.findByCnpj(cnpj).orElseThrow();
+        if(find != null){
+            var findMapper = mapper.map(find);
+            var mapper = mapperRes.toResponse(findMapper);
+            return mapper;
+        }else{
+            throw new RuntimeException("Error enterprise not found!");
+        }
+
+}
 }

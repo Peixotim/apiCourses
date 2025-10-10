@@ -21,6 +21,9 @@ public class TecnicosModel {
     @Column(name = "name" , unique = true,nullable = false)
     private String name;
 
+    @Column(name = "cnpj",nullable = false,unique = true)
+    private String cnpj;
+
     @Column(name = "isActive",nullable = false)
     private boolean isActive = true;
 

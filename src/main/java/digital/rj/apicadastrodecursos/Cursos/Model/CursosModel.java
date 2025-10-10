@@ -1,5 +1,6 @@
 package digital.rj.apicadastrodecursos.Cursos.Model;
 
+import digital.rj.apicadastrodecursos.Faculdades.Model.FaculdadeModel;
 import digital.rj.apicadastrodecursos.Tecnicos.Model.TecnicosModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,4 +37,7 @@ public class CursosModel {
 
     @ManyToMany(mappedBy = "cursos")
     private List<TecnicosModel> tecnicos;
+
+    @ManyToMany(mappedBy = "cursos")
+    private List<FaculdadeModel> faculdade;
 }

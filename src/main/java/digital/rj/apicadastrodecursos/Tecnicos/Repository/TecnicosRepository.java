@@ -11,6 +11,6 @@ public interface TecnicosRepository extends JpaRepository<TecnicosModel,UUID> {
     Object getTecnicosModelByCursos(List<CursosModel> cursos);
     Optional<TecnicosModel> findByName(String name);
     Object getAllByCursos(List<CursosModel> cursos);
-
     Object deleteByName(String name);
+    Optional<TecnicosModel> findByCnpj(String cnpj);
 }

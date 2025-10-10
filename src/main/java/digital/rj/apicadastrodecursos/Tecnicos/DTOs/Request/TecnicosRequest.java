@@ -5,5 +5,5 @@ import lombok.Builder;
 
 
 @Builder
-public record TecnicosRequest(String name){
+public record TecnicosRequest(String name,String cnpj){
 }

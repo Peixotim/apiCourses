@@ -13,15 +13,17 @@ public class TecnicosEntityMapper {
         model.setName(dto.getName());
         model.setActive(dto.isActive());
         model.setCursos(dto.getCursos());
+        model.setCnpj(dto.getCnpj());
         return model;
     }
 
     public TecnicosDTO map(TecnicosModel model){
         TecnicosDTO dto = new TecnicosDTO();
-        model.setName(dto.getName());
-        model.setId(dto.getId());
-        model.setActive(dto.isActive());
+        dto.setName(dto.getName());
+        dto.setId(dto.getId());
+        dto.setActive(dto.isActive());
         dto.setCursos(model.getCursos());
+        dto.setCnpj(model.getCnpj());
         return dto;
     }
 

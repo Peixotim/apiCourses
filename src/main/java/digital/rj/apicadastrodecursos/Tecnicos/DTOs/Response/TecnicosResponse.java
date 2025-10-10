@@ -6,5 +6,5 @@ import java.util.UUID;
 import java.util.List;
 
 @Builder
-public record TecnicosResponse(String name, boolean isActive, UUID id, List<CursosModel> cursos){
+public record TecnicosResponse(String name, String cnpj ,boolean isActive, UUID id, List<CursosModel> cursos){
 }

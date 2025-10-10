@@ -12,7 +12,7 @@ public class TecnicosMapper {
         var req =
                 TecnicosDTO.builder()
                         .name(request.name())
-                        .cursos(request.cursos())
+                        .cnpj(request.cnpj())
                         .build();
 
         return req;
@@ -25,6 +25,7 @@ public class TecnicosMapper {
                         .id(dto.getId())
                         .isActive(dto.isActive())
                         .cursos(dto.getCursos())
+                        .cnpj(dto.getCnpj())
                         .build();
 
         return response;
