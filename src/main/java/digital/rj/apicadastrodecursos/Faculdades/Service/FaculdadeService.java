@@ -7,13 +7,14 @@ import digital.rj.apicadastrodecursos.Faculdades.Mapper.FaculdadeMapperToEntity;
 import digital.rj.apicadastrodecursos.Faculdades.Mapper.FaculdadeMapperToRe;
 import digital.rj.apicadastrodecursos.Faculdades.Model.FaculdadeModel;
 import digital.rj.apicadastrodecursos.Faculdades.Repository.FaculdadeRepository;
+import jakarta.annotation.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Map;
-
+import java.util.UUID;
 @Service
 public class FaculdadeService {
 
@@ -56,6 +57,18 @@ public class FaculdadeService {
 
         return retorno;
     }
+
+
+    public UUID returnID(String name){
+        var findByName = repository.findByName(name);
+        if(findByName.isEmpty()){
+            throw new ResourceNotFoundException("The College with that name does not exist in our database");
+        }
+
+        var id = findByName.get().getId();
+        return id;
+    }
+
 
     @Transactional
     public ResponseEntity<?> delete(String name){
