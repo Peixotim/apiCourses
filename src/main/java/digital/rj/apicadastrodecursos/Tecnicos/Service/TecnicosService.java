@@ -2,7 +2,7 @@ package digital.rj.apicadastrodecursos.Tecnicos.Service;
 
 import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosResponse;
 import digital.rj.apicadastrodecursos.Cursos.Mapper.CursosMapper;
-import digital.rj.apicadastrodecursos.Cursos.Mapper.MapperToEntity;
+import digital.rj.apicadastrodecursos.Cursos.Mapper.CursosMapperToEntity;
 import digital.rj.apicadastrodecursos.Tecnicos.DTOs.Entity.TecnicosDTO;
 import digital.rj.apicadastrodecursos.Tecnicos.DTOs.Request.TecnicosRequest;
 import digital.rj.apicadastrodecursos.Tecnicos.DTOs.Response.TecnicosResponse;
@@ -26,14 +26,14 @@ public class TecnicosService {
     private TecnicosEntityMapper mapper;
     private TecnicosMapper mapperRes;
     private CursosMapper mapperCurses;
-    private MapperToEntity mapperToEntity;
+    private CursosMapperToEntity cursosMapperToEntity;
 
-    public TecnicosService(TecnicosRepository repository, TecnicosEntityMapper mapper, TecnicosMapper mapperRes, CursosMapper cursesmapper, MapperToEntity mapperToEntity) {
+    public TecnicosService(TecnicosRepository repository, TecnicosEntityMapper mapper, TecnicosMapper mapperRes, CursosMapper cursesmapper, CursosMapperToEntity cursosMapperToEntity) {
         this.repository = repository;
         this.mapper = mapper;
         this.mapperRes = mapperRes;
         this.mapperCurses = cursesmapper;
-        this.mapperToEntity = mapperToEntity;
+        this.cursosMapperToEntity = cursosMapperToEntity;
     }
 
     @Transactional
@@ -63,7 +63,7 @@ public class TecnicosService {
 
         var GetCourses = findByName.getCursos()
                 .stream()
-                .map(mapperToEntity::map)
+                .map(cursosMapperToEntity::map)
                 .map(mapperCurses::toResponse)
                 .toList(); //Transforma em uma nova lista
 

@@ -5,7 +5,7 @@ import digital.rj.apicadastrodecursos.Cursos.Model.CursosModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MapperToEntity {
+public class CursosMapperToEntity {
 
     public CursosModel map(CursosDTO dto){
         CursosModel model = new CursosModel();
