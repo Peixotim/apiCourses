@@ -1,10 +1,11 @@
 package digital.rj.apicadastrodecursos.Faculdades.Controller;
 
+import digital.rj.apicadastrodecursos.Faculdades.DTOs.FaculdadeRequest;
 import digital.rj.apicadastrodecursos.Faculdades.DTOs.FaculdadeResponse;
 import digital.rj.apicadastrodecursos.Faculdades.Service.FaculdadeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RequestMapping("faculdade")
 @RestController
@@ -18,9 +19,15 @@ public class FaculdadeController {
 
 
     @GetMapping
-    public List<FaculdadeResponse> getAll(){
-        return service.getAll();
+    public ResponseEntity<List<FaculdadeResponse>> getAll(){
+        return ResponseEntity.ok(service.getAll());
     }
 
+
+    @PostMapping
+    public ResponseEntity<FaculdadeResponse> create(@RequestBody FaculdadeRequest faculdadeRequest){
+
+            return service.create(faculdadeRequest);
+    }
 
 }
