@@ -1,5 +1,7 @@
 package digital.rj.apicadastrodecursos.Cursos.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import digital.rj.apicadastrodecursos.Faculdades.Model.FaculdadeModel;
 import digital.rj.apicadastrodecursos.Tecnicos.Model.TecnicosModel;
 import jakarta.persistence.*;
@@ -36,8 +38,10 @@ public class CursosModel {
     private Type type;
 
     @ManyToMany(mappedBy = "cursos")
+    @JsonBackReference
     private List<TecnicosModel> tecnicos;
 
     @ManyToMany(mappedBy = "cursos")
+    @JsonBackReference
     private List<FaculdadeModel> faculdade;
 }

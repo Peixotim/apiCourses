@@ -1,5 +1,6 @@
 package digital.rj.apicadastrodecursos.Tecnicos.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import digital.rj.apicadastrodecursos.Cursos.Model.CursosModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class TecnicosModel {
             joinColumns = @JoinColumn(name = "tecnico_id"),
             inverseJoinColumns = @JoinColumn(name = "curso_id")
     )
+    @JsonIgnore
     private List<CursosModel> cursos;
 
 }

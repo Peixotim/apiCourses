@@ -1,4 +1,4 @@
-package digital.rj.apicadastrodecursos.Exceptions;
+package digital.rj.apicadastrodecursos.infra.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,13 +1,13 @@
 package digital.rj.apicadastrodecursos.Faculdades.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import digital.rj.apicadastrodecursos.Cursos.Model.CursosModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.UUID;
 import java.util.List;
@@ -36,5 +36,6 @@ public class FaculdadeModel {
 
 
     @ManyToMany
+    @JsonBackReference
     private List<CursosModel> cursos;
 }

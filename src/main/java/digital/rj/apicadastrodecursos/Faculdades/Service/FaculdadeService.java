@@ -1,14 +1,14 @@
 package digital.rj.apicadastrodecursos.Faculdades.Service;
 
+import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosRequest;
 import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosResponse;
 import digital.rj.apicadastrodecursos.Cursos.Mapper.CursosMapper;
 import digital.rj.apicadastrodecursos.Cursos.Mapper.CursosMapperToEntity;
-import digital.rj.apicadastrodecursos.Exceptions.ResourceNotFoundException;
+import digital.rj.apicadastrodecursos.infra.Exceptions.ResourceNotFoundException;
 import digital.rj.apicadastrodecursos.Faculdades.DTOs.FaculdadeRequest;
 import digital.rj.apicadastrodecursos.Faculdades.DTOs.FaculdadeResponse;
 import digital.rj.apicadastrodecursos.Faculdades.Mapper.FaculdadeMapperToEntity;
 import digital.rj.apicadastrodecursos.Faculdades.Mapper.FaculdadeMapperToRe;
-import digital.rj.apicadastrodecursos.Faculdades.Model.FaculdadeModel;
 import digital.rj.apicadastrodecursos.Faculdades.Repository.FaculdadeRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -162,6 +162,5 @@ public class FaculdadeService {
             return ResponseEntity.badRequest().build();
         }
     }
-
 
 }
