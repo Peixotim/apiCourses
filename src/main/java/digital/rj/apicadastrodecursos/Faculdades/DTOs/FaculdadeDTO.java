@@ -17,7 +17,7 @@ public class FaculdadeDTO {
 
     private UUID id;
     private String name;
-    private boolean isActive;
+    private boolean isActive = true;
     private String cnpj;
     private List<CursosModel> cursos;
 }

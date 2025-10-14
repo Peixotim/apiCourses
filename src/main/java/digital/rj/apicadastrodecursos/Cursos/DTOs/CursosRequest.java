@@ -5,5 +5,5 @@ import digital.rj.apicadastrodecursos.Cursos.Model.Type;
 import lombok.Builder;
 
 @Builder
-public record CursosRequest(String name, String description, Category category, Type type ){
+public record CursosRequest(String name, String description, Category category, Type type){
 }

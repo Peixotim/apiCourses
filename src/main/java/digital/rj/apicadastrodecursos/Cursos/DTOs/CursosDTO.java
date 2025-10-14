@@ -17,6 +17,7 @@ public class CursosDTO {
 
     private UUID id;
     private String name;
+    private String description;
     private Category category;
     private Type type;
 }

@@ -3,10 +3,7 @@ package digital.rj.apicadastrodecursos.Cursos.Mapper;
 import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosDTO;
 import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosRequest;
 import digital.rj.apicadastrodecursos.Cursos.DTOs.CursosResponse;
-import digital.rj.apicadastrodecursos.Tecnicos.DTOs.Entity.TecnicosDTO;
-import digital.rj.apicadastrodecursos.Tecnicos.DTOs.Request.TecnicosRequest;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.Validator;
 
 @Component
 public class CursosMapper {
@@ -18,6 +15,7 @@ public class CursosMapper {
                         .builder()
                         .name(request.name())
                         .type(request.type())
+                        .description(request.description())
                         .category(request.category())
                         .build();
 
@@ -29,6 +27,7 @@ public class CursosMapper {
                             .builder()
                             .id(dto.getId())
                             .name(dto.getName())
+                            .description(dto.getDescription())
                             .category(dto.getCategory())
                             .type(dto.getType())
                             .build();

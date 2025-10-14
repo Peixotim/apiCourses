@@ -39,15 +39,12 @@ public class FaculdadeService {
     @Transactional
     public FaculdadeResponse create(FaculdadeRequest request) {
 
-        FaculdadeModel model = new FaculdadeModel();
-        model.setName(request.name());
-        model.setCnpj(request.cnpj());
-        repository.save(model);
+        var req = mapperR.toFaculdade(request);
+        var rep = mapperE.map(req);
 
-        var mappingE = mapperE.map(model);
-        var mappingR = mapperR.toResponse(mappingE);
-
-        return mappingR;
+        repository.save(rep);
+        var result = mapperR.toResponse(mapperE.map(rep));
+        return result   ;
     }
 
     public List<FaculdadeResponse> getAll(){

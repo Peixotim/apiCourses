@@ -13,6 +13,7 @@ public class CursosMapperToEntity {
         model.setName(dto.getName());
         model.setCategory(dto.getCategory());
         model.setType(dto.getType());
+        model.setDescription(dto.getDescription());
         return model;
     }
 
@@ -20,6 +21,7 @@ public class CursosMapperToEntity {
         CursosDTO dto = new CursosDTO();
         dto.setId(model.getId());
         dto.setName(model.getName());
+        dto.setDescription(model.getDescription());
         dto.setCategory(model.getCategory());
         dto.setType(model.getType());
         return dto;

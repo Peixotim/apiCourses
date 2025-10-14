@@ -26,6 +26,7 @@ public class FaculdadeMapperToRe {
                         .builder()
                         .id(dto.getId())
                         .name(dto.getName())
+                        .cnpj(dto.getCnpj())
                         .cursos(dto.getCursos())
                         .isActive(dto.isActive())
                         .build();
