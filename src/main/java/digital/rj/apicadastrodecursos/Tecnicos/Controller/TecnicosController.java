@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("tec")
+@RequestMapping("techinical")
 public class TecnicosController {
 
     private final TecnicosService service;
