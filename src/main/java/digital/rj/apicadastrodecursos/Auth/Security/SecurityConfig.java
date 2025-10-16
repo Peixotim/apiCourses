@@ -25,11 +25,23 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        //Rota publica
-                        .requestMatchers("/auth/**").permitAll()
-                        //Rota que precisa de autenticacao de ADMIN
+                        // Rotas públicas (auth + swagger)
+                        .requestMatchers(
+                                "/auth/**",
+                                "/api-docs/**",          // sua UI customizada
+                                "/v3/api-docs/**",       // endpoint padrão do Springdoc
+                                "/swagger-ui/**",        // interface Swagger
+                                "/swagger-ui.html",      // acesso direto
+                                "/swagger-resources/**",
+                                "/webjars/**",
+                                "/configuration/ui",
+                                "/configuration/security"
+                        ).permitAll()
+
+                        // Rota restrita a ADMIN
                         .requestMatchers("/auth/alterRole").hasAuthority("ADMIN")
-                        //Rotas que precisam de autenticacao
+
+                        // Rotas autenticadas
                         .requestMatchers("/college/**").authenticated()
                         .requestMatchers("/techinical/**").authenticated()
                         .requestMatchers("/courses/**").authenticated()
