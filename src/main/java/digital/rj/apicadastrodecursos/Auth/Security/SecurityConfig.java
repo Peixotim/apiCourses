@@ -20,21 +20,23 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AcessLoggerFilter acessLoggerFilter) throws Exception{
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         //Rota publica
                         .requestMatchers("/auth/**").permitAll()
-                        //Rotas que precisam de autenticacao
+                        //Rota que precisa de autenticacao de ADMIN
                         .requestMatchers("/auth/alterRole").hasAuthority("ADMIN")
+                        //Rotas que precisam de autenticacao
                         .requestMatchers("/college/**").authenticated()
                         .requestMatchers("/techinical/**").authenticated()
                         .requestMatchers("/courses/**").authenticated()
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(acessLoggerFilter, JwtAuthenticationFilter.class);
         return http.build();
     }
 
