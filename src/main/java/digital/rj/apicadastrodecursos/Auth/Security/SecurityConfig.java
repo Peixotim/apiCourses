@@ -28,7 +28,7 @@ public class SecurityConfig {
                         //Rota publica
                         .requestMatchers("/auth/**").permitAll()
                         //Rotas que precisam de autenticacao
-                        .requestMatchers("/auth/alterRole").hasRole("ADMIN")
+                        .requestMatchers("/auth/alterRole").hasAuthority("ADMIN")
                         .requestMatchers("/college/**").authenticated()
                         .requestMatchers("/techinical/**").authenticated()
                         .requestMatchers("/courses/**").authenticated()
